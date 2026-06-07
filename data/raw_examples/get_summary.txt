@@ -1,0 +1,5 @@
+Get me the summary of paper {internal_id}
+Can you summarize paper {internal_id}?
+What is paper {internal_id} about?
+Thanks, Alfred. Now can you please summarize paper number {internal_id}?
+Alfred, what is the summary for number {internal_id}?

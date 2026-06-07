@@ -1,0 +1,5 @@
+Morning Alfred, could you fetch the latest AI research from hugging face?
+Get the latest AI research off the internet.
+Pull the latest AI research papers please.
+Get me the titles of the most recent AI research papers.
+Pull AI research data from the internet.

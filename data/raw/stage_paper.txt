@@ -1,0 +1,105 @@
+Could you go ahead and stage paper {internal_id}?
+Okay, stage {internal_id} for printing.
+Stage {internal_id}.
+Stage the {internal_id} paper
+I like the sound of paper {internal_id}, you can go ahead and stage it.
+Please stage paper {internal_id}.
+Can you prepare paper {internal_id} for later?
+Select paper {internal_id} for the next step.
+Alfred, please queue up paper {internal_id}.
+Put paper {internal_id} on standby.
+Go ahead and choose paper {internal_id}.
+Set up paper {internal_id} in the staging area.
+I want to stage paper number {internal_id}.
+Could you hold paper {internal_id} for me?
+Mark paper {internal_id} as selected.
+Alfred, stage paper {internal_id} right now.
+Let's prepare document {internal_id}.
+Can we choose paper {internal_id}?
+Please put paper {internal_id} into the queue.
+Stage the paper with ID {internal_id}.
+Go ahead and stage number {internal_id}.
+Can you select paper {internal_id} for me?
+Alfred, prepare paper {internal_id} for action.
+Kindly stage paper {internal_id}.
+Put number {internal_id} on deck.
+I'd like to stage paper {internal_id}, please.
+Can you make paper {internal_id} the active choice?
+Highlight paper {internal_id} and stage it.
+Alfred, set up paper {internal_id}.
+Let's stage paper {internal_id}.
+Ready paper {internal_id} for printing.
+Put paper {internal_id} in the staging slot.
+Could you stage the paper under ID {internal_id}?
+Select document {internal_id}.
+Alfred, hold paper {internal_id} in memory.
+Choose paper {internal_id} for the next action.
+Stage number {internal_id} for me.
+Can you queue paper {internal_id}?
+Please prepare paper {internal_id}.
+Alfred, let's select paper {internal_id}.
+Mark number {internal_id} as ready.
+Go ahead and prepare paper {internal_id}.
+Can you put paper {internal_id} on standby?
+Stage paper {internal_id} for the next task.
+I want paper {internal_id} staged.
+Could you select paper {internal_id}?
+Alfred, prepare number {internal_id} for me.
+Place paper {internal_id} into the staging area.
+Let's get paper {internal_id} staged.
+Can we stage paper {internal_id} now?
+Please mark paper {internal_id} as prepared.
+Go ahead and hold paper {internal_id}.
+Alfred, queue paper {internal_id} up.
+Stage document {internal_id}.
+I need paper {internal_id} staged for later.
+Pick paper {internal_id} and stage it.
+Could you prepare paper {internal_id} for the next step?
+Put paper {internal_id} on the active list.
+Alfred, please choose paper {internal_id}.
+Mark paper {internal_id} for staging.
+Can you set up paper {internal_id} for later?
+Go ahead and queue up paper {internal_id}.
+Stage number {internal_id} please.
+I've decided on paper {internal_id}, please stage it.
+Alfred, make paper {internal_id} ready.
+Select and stage paper {internal_id}.
+Could you stage number {internal_id} for me?
+Put paper {internal_id} in the queue, Alfred.
+Prepare paper {internal_id} for printing.
+Let's choose paper {internal_id} next.
+Can you hold paper {internal_id} in the staging area?
+Please stage the document with ID {internal_id}.
+Go ahead and select paper {internal_id}.
+Alfred, put paper {internal_id} on deck.
+Mark document {internal_id} as ready.
+Can you stage paper {internal_id} right away?
+Please set up paper {internal_id}.
+I need you to stage paper {internal_id}.
+Alfred, go ahead and choose paper {internal_id}.
+Let's prepare paper {internal_id} for the printing queue.
+Could you put paper {internal_id} into staging?
+Stage paper {internal_id} for later use.
+Select number {internal_id} and stage it.
+Can you make paper {internal_id} ready for action?
+Alfred, please stage document {internal_id}.
+Place paper {internal_id} on standby.
+Go ahead and prepare paper {internal_id} for me.
+Let's stage number {internal_id}.
+Can you select paper {internal_id} as the active choice?
+Please queue up paper number {internal_id}.
+Alfred, stage paper {internal_id} for printing.
+Put paper {internal_id} into the active slot.
+Could you mark paper {internal_id} as staged?
+Choose paper {internal_id} and put it on standby.
+Go ahead and set up paper {internal_id}.
+Alfred, please prepare paper {internal_id} for later.
+Can you hold paper {internal_id} for the next step?
+Stage paper {internal_id} now.
+I would like to choose paper {internal_id}.
+Let's put paper {internal_id} in staging.
+Could you queue paper {internal_id} for printing?
+Please prepare paper {internal_id} right now.
+Alfred, select paper {internal_id} for me.
+Go ahead and stage document {internal_id}.
+Put paper {internal_id} into the staging area.

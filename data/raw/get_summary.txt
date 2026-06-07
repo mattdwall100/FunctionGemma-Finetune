@@ -1,0 +1,100 @@
+Give me a summary of paper {internal_id}.
+Can you explain what paper {internal_id} is about?
+What's the main idea of document {internal_id}?
+Provide an overview for paper {internal_id}.
+I want to see the summary for number {internal_id}.
+Could you pull up the details for paper {internal_id}?
+What are the key findings in paper {internal_id}?
+Breakdown paper {internal_id} for me.
+Show me the summary of {internal_id}.
+Can I get a recap of number {internal_id}?
+Please summarize the contents of paper {internal_id}.
+Alfred, can you read me the abstract for {internal_id}?
+What is the TL;DR for paper {internal_id}?
+I need a quick overview of {internal_id}, please.
+Could you give me a breakdown of paper {internal_id}?
+Let's see the summary for {internal_id}.
+Can you summarize number {internal_id} real quick?
+What does paper {internal_id} focus on?
+Kindly provide the summary for paper {internal_id}.
+Give me the rundown on paper {internal_id}.
+Alfred, what's the deal with paper {internal_id}?
+I'd like to hear the summary for {internal_id}.
+What exactly is paper {internal_id} covering?
+Can you elaborate on what paper {internal_id} is about?
+Summary for {internal_id}, thanks.
+Show me the explanation for paper {internal_id}.
+Alfred, please provide a summary of paper {internal_id}.
+Can you extract the summary for document {internal_id}?
+What is the main thesis of paper {internal_id}?
+Run me through the summary of {internal_id}.
+Hey Alfred, give me the quick facts on paper {internal_id}.
+I need to know what paper {internal_id} discusses.
+Could you show me the summary for paper {internal_id}?
+Give me an abstract of paper {internal_id}.
+What is being studied in paper {internal_id}?
+Alfred, look up the summary for number {internal_id}.
+Can you brief me on paper {internal_id}?
+Tell me about paper {internal_id}.
+I'm curious about paper {internal_id}, what's it about?
+Summary of {internal_id}.
+Print out the summary for paper {internal_id} on the screen.
+Would you mind summarizing paper {internal_id} for me?
+Give me the details on number {internal_id}.
+What's the summary for {internal_id}?
+Hey, can you summarize paper {internal_id}?
+Alfred, give me a quick recap of {internal_id}.
+What does document {internal_id} talk about?
+Can you fetch the summary for paper {internal_id}?
+Let's check out the summary for paper {internal_id}.
+Give me a brief overview of {internal_id}.
+I'd love to see a summary of paper {internal_id} if you don't mind.
+Alfred, what are they doing in paper {internal_id}?
+Tell me what paper {internal_id} is about.
+Can you give me the summary for number {internal_id}?
+What is the core concept of paper {internal_id}?
+Summarize {internal_id}, please.
+Show details for paper {internal_id}.
+Alfred, I need the summary for {internal_id} right now.
+Could you read out the summary of paper {internal_id}?
+What's the summary on {internal_id}?
+Give me a comprehensive summary of paper {internal_id}.
+Alfred, show me what paper {internal_id} is all about.
+Can we get a summary of number {internal_id}?
+What is the summary of the paper with ID {internal_id}?
+I want to look at the summary for paper {internal_id}.
+Can you describe paper {internal_id} for me?
+Alfred, please fetch the overview for paper {internal_id}.
+What are the main points of paper {internal_id}?
+Get the summary for {internal_id}.
+Give me a short summary of paper {internal_id}.
+Can you show me the explanation of paper {internal_id}?
+What is the summary of paper {internal_id}?
+Give me the abstract for {internal_id}.
+Alfred, summarize paper {internal_id}.
+Let's get a summary of paper {internal_id}.
+Could you summarize paper number {internal_id}?
+I need the summary of paper {internal_id}.
+Alfred, tell me what paper {internal_id} is about.
+Show me the summary for {internal_id}.
+Can you pull the summary for paper {internal_id}?
+What's the breakdown for paper {internal_id}?
+Give me the summary for paper {internal_id}.
+Alfred, what's the summary of {internal_id}?
+Can you give me a summary of number {internal_id}?
+Please give me the summary for paper {internal_id}.
+What is paper {internal_id} talking about?
+Summary please for paper {internal_id}.
+Can you show the summary of paper {internal_id}?
+Give me a recap of paper {internal_id}.
+Alfred, I'd like a summary of paper {internal_id}.
+What is the overview for paper {internal_id}?
+Can you tell me what paper {internal_id} is about?
+Show the summary for paper {internal_id}.
+Give me an overview of paper {internal_id}.
+Alfred, can I get the summary for paper {internal_id}?
+What's the summary of paper {internal_id}?
+Summarize paper {internal_id}.
+Can you explain paper {internal_id}?
+Please summarize paper {internal_id}.
+Give me the summary of {internal_id}.

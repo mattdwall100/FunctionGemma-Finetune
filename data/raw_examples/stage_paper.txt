@@ -1,0 +1,5 @@
+Could you go ahead and stage paper {internal_id}?
+Okay, stage {internal_id} for printing.
+Stage {internal_id}.
+Stage the {internal_id} paper
+I like the sound of paper {internal_id}, you can go ahead and stage it.

@@ -1,0 +1,5 @@
+Which paper is staged?
+What is the staged paper id?
+Which paper did you just stage?
+Give the staged paper id.
+Thanks, Alfred, could you just confirm which paper you have staged?
