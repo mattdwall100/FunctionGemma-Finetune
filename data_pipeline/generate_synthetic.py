@@ -18,6 +18,11 @@ DEFAULT_SYSTEM_MSG = "You are a model named Alfred that can do function calling 
 def create_conversation(
     user_content: str, tool_name: str, tool_arguments: dict
 ) -> dict[str, List[dict]]:
+    if not DEFAULT_SYSTEM_MSG:
+        raise ValueError("DEFAULT_SYSTEM_MSG is not set. Please set it before creating conversations.")
+    if not TOOLS:
+        raise ValueError("TOOLS list is empty. Please load tool schemas before creating conversations.")
+
     return {
         "messages": [
             {"role": "developer", "content": DEFAULT_SYSTEM_MSG},
@@ -78,3 +83,20 @@ for tool in TOOLS:
 
                 for conversation in conversations:
                     processed_f.write(json.dumps(conversation) + "\n")
+
+
+from datasets import load_dataset
+
+# Get the negative data from the cosmosai471/General_Conversation_Mixed_Dataset dataset, which is a mix of human and model 
+# conversations that are not grounded in tool use. We will label these with empty tool calls to teach the model when NOT to call tools.
+
+# Login using e.g. `huggingface-cli login` to access this dataset
+ds = load_dataset("cosmosai471/General_Conversation_Mixed_Dataset", split="train")
+ds = ds.select_columns(["text"])
+ds = ds.map(lambda x: {"text": x["text"].strip().replace("Luna", "Alfred")})
+ds = ds.map(lambda x: {"text": x["text"].replace("\u2019", "'")})
+
+with open("data/processed/NO_TOOL.jsonl", "w", encoding="utf-8") as f:
+    for item in ds:
+        # json.dumps converts the dictionary to a string
+        f.write(json.dumps(create_conversation(user_content=item["text"], tool_name="", tool_arguments={}), ensure_ascii=False) + "\n")
