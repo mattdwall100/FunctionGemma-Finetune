@@ -7,7 +7,6 @@ from datasets import load_dataset
 
 def get_data():
 
-
     # read tool schemas
     with open("data/schemas.jsonl", "r", encoding="utf-8") as f:
         TOOLS = [json.loads(line.strip()) for line in f if line.strip()]

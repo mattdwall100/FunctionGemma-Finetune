@@ -1,13 +1,12 @@
 from pydantic import BaseModel
 from pathlib import Path
-from typing import Optional
-import os
 import yaml
 
 CONFIG_PATH = "configs/train.yaml"
 CHECKPOINT_DIR = "checkpoints"
 
 # NOTE: specify all fields and defaults here
+
 
 class TrainSettings(BaseModel):
     # HF model address
@@ -19,20 +18,24 @@ class TrainSettings(BaseModel):
     attn_implementation: str = "eager"
 
     # SFT hyperparameters (defaults are from Google FunctionGemma FT guide)
-    output_dir = "checkpoints",              # directory to save and repository id
-    max_length: int = 512,                         # max sequence length for model and packing of the dataset
-    packing: bool = False,                          # Groups multiple samples in the dataset into a single sequence
-    num_train_epochs: int = 8,                     # number of training epochs
-    per_device_train_batch_size: int = 4,          # batch size per device during training
-    gradient_checkpointing: bool = False,           # Caching is incompatible with gradient checkpointing
-    optim: str = "adamw_torch_fused",              # use fused adamw optimizer
-    logging_steps: int = 1,                        # log every step
-    save_strategy: str = "epoch",                  # save checkpoint every epoch
-    eval_strategy: str = "epoch",                  # evaluate checkpoint every epoch
-    learning_rate: float = 5e-5,            # learning rate
-    lr_scheduler_type: str = "constant",            # use constant learning rate scheduler
-    push_to_hub: bool = False,                        # push model to hub
-    report_to: str = "tensorboard",                 # report metrics to tensorboard
+    output_dir = ("checkpoints",)  # directory to save and repository id
+    max_length: int = (512,)  # max sequence length for model and packing of the dataset
+    packing: bool = (
+        False,
+    )  # Groups multiple samples in the dataset into a single sequence
+    num_train_epochs: int = (8,)  # number of training epochs
+    per_device_train_batch_size: int = (4,)  # batch size per device during training
+    gradient_checkpointing: bool = (
+        False,
+    )  # Caching is incompatible with gradient checkpointing
+    optim: str = ("adamw_torch_fused",)  # use fused adamw optimizer
+    logging_steps: int = (1,)  # log every step
+    save_strategy: str = ("epoch",)  # save checkpoint every epoch
+    eval_strategy: str = ("epoch",)  # evaluate checkpoint every epoch
+    learning_rate: float = (5e-5,)  # learning rate
+    lr_scheduler_type: str = ("constant",)  # use constant learning rate scheduler
+    push_to_hub: bool = (False,)  # push model to hub
+    report_to: str = ("tensorboard",)  # report metrics to tensorboard
 
 
 class TrainConfig:
@@ -47,7 +50,7 @@ class TrainConfig:
         with path.open("r", encoding="utf-8") as f:
             raw = yaml.safe_load(f) or {}
         config = raw.get("settings", {})
-        
+
         settings_kwargs = {}
         settings_kwargs["basemodel"] = config.get("basemodel", "")
         settings_kwargs.update(config.get("causal_lm_settings", {}))
@@ -58,9 +61,9 @@ class TrainConfig:
             settings = TrainSettings(**settings_kwargs)
         except Exception as e:
             raise ValueError(f"Invalid config for training: {e}") from e
- 
+
         return cls(settings)
-    
+
     @property
     def base_settings(self) -> TrainSettings:
         return self.__base_settings
@@ -75,6 +78,3 @@ class TrainConfig:
             raise ValueError(f"Invalid config for training: {e}") from e
 
         return patched_settings
-
-
-
