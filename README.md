@@ -12,3 +12,5 @@ USE:
    add a line to [CONFIG LOCATION] to specify per-tool argument variants that will be injected during data processing.
 4. Create processed data with argument injection variants:
    > > python .\data_pipeline\generate_synthetic.py
+
+$env:PYTHONUTF8 = "1"

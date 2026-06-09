@@ -1,7 +1,7 @@
-from sft_config import TrainSettings
+from .sft_config import TrainSettings
 from datasets import Dataset
 import torch
-from transformers import AutoTokenizer, AutoModelForCausalLM, TrainOutput
+from transformers import AutoTokenizer, AutoModelForCausalLM
 from trl import SFTConfig, SFTTrainer
 
 
@@ -13,7 +13,7 @@ class TrainEngine:
 
     @classmethod
     def _from_settings(cls, settings: TrainSettings) -> "TrainEngine":
-        "Configure the model from the basemodel and causal_LM_settings settings"
+        "Configure the model from the base_model and causal_LM_settings settings"
 
         # Get the tokenizer and causal model
         tokenizer = AutoTokenizer.from_pretrained(settings.base_model)
@@ -29,9 +29,10 @@ class TrainEngine:
 
         return cls(tokenizer, model)
 
+    # NOTE: Find way to use TrainOutput from transformers as return type
     def train_model(
         self, settings: TrainSettings, train_data: Dataset, val_data: Dataset
-    ) -> TrainOutput:
+    ) -> dict:
         # Create the SFT Config and Trainer
         torch_dtype = self.model.dtype
         args = SFTConfig(

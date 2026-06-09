@@ -10,7 +10,7 @@ CHECKPOINT_DIR = "checkpoints"
 
 class TrainSettings(BaseModel):
     # HF model address
-    basemodel: str = "google/functiongemma-270m-it"
+    base_model: str = "google/functiongemma-270m-it"
 
     # Casual LM settings
     dtype: str = "auto"
@@ -18,7 +18,7 @@ class TrainSettings(BaseModel):
     attn_implementation: str = "eager"
 
     # SFT hyperparameters (defaults are from Google FunctionGemma FT guide)
-    output_dir = ("checkpoints",)  # directory to save and repository id
+    output_dir: str = ("checkpoints",)  # directory to save and repository id
     max_length: int = (512,)  # max sequence length for model and packing of the dataset
     packing: bool = (
         False,
@@ -52,7 +52,7 @@ class TrainConfig:
         config = raw.get("settings", {})
 
         settings_kwargs = {}
-        settings_kwargs["basemodel"] = config.get("basemodel", "")
+        settings_kwargs["base_model"] = config.get("base_model", "")
         settings_kwargs.update(config.get("causal_lm_settings", {}))
         settings_kwargs.update(config.get("sft_settings", {}))
         settings_kwargs.update(config.get("data", {}))
