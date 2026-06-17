@@ -36,6 +36,7 @@ class TrainEngine:
         # Create the SFT Config and Trainer
         torch_dtype = self.model.dtype
         args = SFTConfig(
+            use_cpu=settings.use_cpu, # Need if gpu doesnt support datatype
             output_dir=settings.output_dir,  # directory to save and repository id
             max_length=settings.max_length,  # max sequence length for model and packing of the dataset
             packing=settings.packing,  # Groups multiple samples in the dataset into a single sequence

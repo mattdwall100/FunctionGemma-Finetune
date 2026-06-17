@@ -1,10 +1,11 @@
 settings:
   base_model: "google/functiongemma-270m-it"
   causal_lm_settings:
-    dtype: "dtype"
+    dtype: "auto"
     device_map: "auto"
     attn_implementation: "eager"
   sft_settings:
+    use_cpu: True
     output_dir: "checkpoints"
     max_length: 512
     packing: False
