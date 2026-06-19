@@ -42,11 +42,14 @@ class TrainEngine:
             packing=settings.packing,  # Groups multiple samples in the dataset into a single sequence
             num_train_epochs=settings.num_train_epochs,  # number of training epochs
             per_device_train_batch_size=settings.per_device_train_batch_size,  # batch size per device during training
+            gradient_accumulation_steps=settings.gradient_accumulation_steps,
             gradient_checkpointing=settings.gradient_checkpointing,  # Caching is incompatible with gradient checkpointing
             optim=settings.optim,  # use fused adamw optimizer
             logging_steps=settings.logging_steps,  # log every step
             save_strategy=settings.save_strategy,  # save checkpoint every epoch
             eval_strategy=settings.eval_strategy,  # evaluate checkpoint every epoch
+            per_device_eval_batch_size=settings.per_device_eval_batch_size,
+            eval_on_start=settings.eval_on_start,
             learning_rate=settings.learning_rate,  # learning rate
             fp16= True if torch_dtype == torch.float16 else False,  # use float16 precision
             bf16= True if torch_dtype == torch.bfloat16 else False,  # use bfloat16 precision

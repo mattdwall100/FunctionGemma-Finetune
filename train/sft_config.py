@@ -25,7 +25,8 @@ class TrainSettings(BaseModel):
         False,
     )  # Groups multiple samples in the dataset into a single sequence
     num_train_epochs: int = (8,)  # number of training epochs
-    per_device_train_batch_size: int = (4,)  # batch size per device during training
+    per_device_train_batch_size: int = (2,)  # batch size per device during training
+    gradient_accumulation_steps: int = (2,)
     gradient_checkpointing: bool = (
         False,
     )  # Caching is incompatible with gradient checkpointing
@@ -33,6 +34,8 @@ class TrainSettings(BaseModel):
     logging_steps: int = (1,)  # log every step
     save_strategy: str = ("epoch",)  # save checkpoint every epoch
     eval_strategy: str = ("epoch",)  # evaluate checkpoint every epoch
+    per_device_eval_batch_size: int = (2,)
+    eval_on_start: bool = False
     learning_rate: float = (5e-5,)  # learning rate
     lr_scheduler_type: str = ("constant",)  # use constant learning rate scheduler
     push_to_hub: bool = (False,)  # push model to hub

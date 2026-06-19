@@ -14,4 +14,4 @@ USE:
    > > python .\data_pipeline\generate_synthetic.py
 
 $env:PYTHONUTF8 = "1"
-hf auth login
+hf auth login 

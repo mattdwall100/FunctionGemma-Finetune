@@ -12,7 +12,7 @@ def get_data():
         TOOLS = [json.loads(line.strip()) for line in f if line.strip()]
 
     arg_injections = {
-        "internal_id": ["1", "2", "3", "4", "5", "one", "two", "three", "four", "five"],
+        "internal_id": [("1", "1"), ("2", "2"), ("3", "3"), ("4", "4"), ("5", "5"), ("one", "1"), ("two", "2"), ("three", "3"), ("four", "4"), ("five", "5")],
         # Add more argument injections as needed for other tools
     }
 
@@ -72,27 +72,30 @@ def get_data():
                         continue  # skip empties
 
                     variants = [
-                        user_content
+                        (user_content, args)
                     ]  # default to original user content if no args
                     if args:
                         # If the tool requires arguments, we randomly inject choices from arg_injections
                         variants = [user_content] * argument_variant_count
                         for i, variant in enumerate(variants):
                             variant_args = {}
+                            mapped_variant_args = {}
                             for arg_name in args.keys():
                                 if arg_name in arg_injections.keys():
-                                    variant_args[arg_name] = random.choice(
+                                    arg_map_choice = random.choice(
                                         arg_injections[arg_name]
                                     )
+                                    variant_args[arg_name] = arg_map_choice[0]
+                                    mapped_variant_args[arg_name] = arg_map_choice[1]
                                 else:
                                     raise ValueError(
                                         f"Warning: No injections found for argument '{arg_name}' in tool '{name}'. Using placeholder value."
                                     )
                                 # Inject argument choices into the user content
-                                variants[i] = variant.format(**variant_args)
+                                variants[i] = (variant.format(**variant_args), mapped_variant_args)
 
                     conversations = [
-                        create_conversation(variant, name, args) for variant in variants
+                        create_conversation(variant[0], name, variant[1]) for variant in variants
                     ]
 
                     for conversation in conversations:
