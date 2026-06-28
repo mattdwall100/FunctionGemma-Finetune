@@ -37,7 +37,7 @@ class TrainEngine:
         # Create the SFT Config and Trainer
         torch_dtype = self.model.dtype
         args = SFTConfig(
-            use_cpu=settings.use_cpu, # Need if gpu doesnt support datatype
+            use_cpu=settings.use_cpu,  # Need if gpu doesnt support datatype
             output_dir=settings.output_dir,  # directory to save and repository id
             max_length=settings.max_length,  # max sequence length for model and packing of the dataset
             packing=settings.packing,  # Groups multiple samples in the dataset into a single sequence
@@ -52,13 +52,17 @@ class TrainEngine:
             per_device_eval_batch_size=settings.per_device_eval_batch_size,
             eval_on_start=settings.eval_on_start,
             learning_rate=settings.learning_rate,  # learning rate
-            fp16= True if torch_dtype == torch.float16 else False,  # use float16 precision
-            bf16= True if torch_dtype == torch.bfloat16 else False,  # use bfloat16 precision
+            fp16=True
+            if torch_dtype == torch.float16
+            else False,  # use float16 precision
+            bf16=True
+            if torch_dtype == torch.bfloat16
+            else False,  # use bfloat16 precision
             lr_scheduler_type=settings.lr_scheduler_type,  # use constant learning rate scheduler
             push_to_hub=settings.push_to_hub,  # push model to hub
             report_to=settings.report_to,  # report metrics to tensorboard
         )
-        
+
         # Use LoRA settings if decided
         if settings.use_lora:
             peft_config = LoraConfig(
@@ -76,15 +80,18 @@ class TrainEngine:
             train_dataset=train_data,
             eval_dataset=val_data,
             processing_class=self.tokenizer,
-            peft_config=peft_config if settings.use_lora else None
+            peft_config=peft_config if settings.use_lora else None,
         )
+
+
+        trainer.model.print_trainable_parameters()
 
         # Start training, the model will be automatically saved to the Hub and the output directory
         train_results = trainer.train()
 
         # Save the final model again to the Hugging Face Hub
-        trainer.save_model()
+        # Save strategy is per epoch atm
+        #trainer.save_model()
+
 
         return train_results
-
-

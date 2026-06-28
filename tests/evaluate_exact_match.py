@@ -107,5 +107,5 @@ def evaluate_exact_match(model_path: str, name: str):
 
 
 if __name__ == "__main__":
-    #evaluate_exact_match(BASE_MODEL, "Base model")
+    # evaluate_exact_match(BASE_MODEL, "Base model")
     evaluate_exact_match(CHECKPOINT, "Checkpoint 2256")

@@ -1,7 +1,12 @@
 import re
 import torch
 from datasets import load_dataset
-from transformers import AutoTokenizer, AutoModelForCausalLM, StoppingCriteria, StoppingCriteriaList
+from transformers import (
+    AutoTokenizer,
+    AutoModelForCausalLM,
+    StoppingCriteria,
+    StoppingCriteriaList,
+)
 
 
 BASE_MODEL = "google/functiongemma-270m-it"
@@ -23,7 +28,7 @@ class StopOnAnySubsequence(StoppingCriteria):
         ids = input_ids[0].tolist()
 
         for stop_ids in self.stop_sequences:
-            if len(ids) >= len(stop_ids) and ids[-len(stop_ids):] == stop_ids:
+            if len(ids) >= len(stop_ids) and ids[-len(stop_ids) :] == stop_ids:
                 return True
 
         return False
@@ -79,9 +84,7 @@ def evaluate_tool_accuracy(model_path: str, name: str):
         tokenizer.encode(END_FUNCTION_CALL, add_special_tokens=False),
     ]
 
-    stopping_criteria = StoppingCriteriaList([
-        StopOnAnySubsequence(stop_sequences)
-    ])
+    stopping_criteria = StoppingCriteriaList([StopOnAnySubsequence(stop_sequences)])
 
     test_data = load_dataset("json", data_files=TEST_DATA_PATH, split="train")
 
@@ -111,7 +114,7 @@ def evaluate_tool_accuracy(model_path: str, name: str):
             )
 
         output = tokenizer.decode(
-            out[0][len(inputs["input_ids"][0]):],
+            out[0][len(inputs["input_ids"][0]) :],
             skip_special_tokens=False,
         )
 
@@ -133,7 +136,9 @@ def evaluate_tool_accuracy(model_path: str, name: str):
         print("\nPredicted tool:")
         print(predicted_tool)
 
-        print("\nTruncated output: (before stop condition (end of turn or end function calll tokens ))")
+        print(
+            "\nTruncated output: (before stop condition (end of turn or end function calll tokens ))"
+        )
         print(output)
 
     print(f"\n{name}")
@@ -145,5 +150,5 @@ def evaluate_tool_accuracy(model_path: str, name: str):
 
 
 if __name__ == "__main__":
-    #evaluate_tool_accuracy(BASE_MODEL, "Base model")
+    # evaluate_tool_accuracy(BASE_MODEL, "Base model")
     evaluate_tool_accuracy(CHECKPOINT, "Checkpoint 282")

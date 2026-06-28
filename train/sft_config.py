@@ -18,7 +18,7 @@ class TrainSettings(BaseModel):
     attn_implementation: str = "eager"
 
     # SFT hyperparameters (defaults are from Google FunctionGemma FT guide)
-    use_cpu: bool = False # needed if auto data type not compatible with cpu
+    use_cpu: bool = False  # needed if auto data type not compatible with cpu
     output_dir: str = ("checkpoints",)  # directory to save and repository id
     max_length: int = (512,)  # max sequence length for model and packing of the dataset
     packing: bool = (
@@ -50,6 +50,7 @@ class TrainSettings(BaseModel):
     lora_dropout: float = 0.05
     bias: str = "none"
     target_modules: str = "all-linear"
+
 
 class TrainConfig:
     def __init__(self, settings: TrainSettings):

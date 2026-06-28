@@ -25,7 +25,7 @@ settings:
     report_to: "tensorboard"
   use_lora:
     use_lora: True
-  llora_settings:
+  lora_settings:
     r: 8
     lora_alpha: 4
     lora_dropout: 0.05
