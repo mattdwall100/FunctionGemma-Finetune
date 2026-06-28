@@ -3,6 +3,7 @@ from datasets import Dataset
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 from trl import SFTConfig, SFTTrainer
+from peft import LoraConfig
 
 
 class TrainEngine:
@@ -57,6 +58,17 @@ class TrainEngine:
             push_to_hub=settings.push_to_hub,  # push model to hub
             report_to=settings.report_to,  # report metrics to tensorboard
         )
+        
+        # Use LoRA settings if decided
+        if settings.use_lora:
+            peft_config = LoraConfig(
+                r=settings.r,
+                lora_alpha=settings.lora_alpha,
+                lora_dropout=settings.lora_dropout,
+                bias=settings.bias,
+                target_modules=settings.target_modules,
+            )
+
         # Create Trainer object
         trainer = SFTTrainer(
             model=self.model,
@@ -64,6 +76,7 @@ class TrainEngine:
             train_dataset=train_data,
             eval_dataset=val_data,
             processing_class=self.tokenizer,
+            peft_config=peft_config if settings.use_lora else None
         )
 
         # Start training, the model will be automatically saved to the Hub and the output directory

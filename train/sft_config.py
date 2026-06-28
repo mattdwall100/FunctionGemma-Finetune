@@ -41,6 +41,15 @@ class TrainSettings(BaseModel):
     push_to_hub: bool = (False,)  # push model to hub
     report_to: str = ("tensorboard",)  # report metrics to tensorboard
 
+    # Use LoRA?
+    use_lora: bool = (False,)
+
+    # LoRA / Peft config
+    r: int = 4
+    lora_alpha: int = 16
+    lora_dropout: float = 0.05
+    bias: str = "none"
+    target_modules: str = "all-linear"
 
 class TrainConfig:
     def __init__(self, settings: TrainSettings):
@@ -60,6 +69,8 @@ class TrainConfig:
         settings_kwargs.update(config.get("causal_lm_settings", {}))
         settings_kwargs.update(config.get("sft_settings", {}))
         settings_kwargs.update(config.get("data", {}))
+        settings_kwargs.update(config.get("use_lora", {}))
+        settings_kwargs.update(config.get("lora_settings", {}))
 
         try:
             settings = TrainSettings(**settings_kwargs)

@@ -10,6 +10,7 @@ checkpoints/
 *.so
 
 # Distribution / packaging
+.venv-clean/
 .Python
 build/
 develop-eggs/

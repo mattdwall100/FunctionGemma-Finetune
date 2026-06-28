@@ -23,3 +23,11 @@ settings:
     lr_scheduler_type: "constant"
     push_to_hub: False
     report_to: "tensorboard"
+  use_lora:
+    use_lora: True
+  llora_settings:
+    r: 8
+    lora_alpha: 4
+    lora_dropout: 0.05
+    bias: "none"
+    target_modules: "all-linear"
