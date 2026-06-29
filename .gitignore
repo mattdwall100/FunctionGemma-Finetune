@@ -9,6 +9,7 @@ checkpoints/
 # C extensions
 *.so
 final_merged_export/
+gguf/
 # Distribution / packaging
 .venv-clean/
 .Python
