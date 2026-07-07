@@ -8,7 +8,6 @@ python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 
-
 GENERATE DATA:
 
 1. store tools in tools.py
@@ -22,30 +21,50 @@ GENERATE DATA:
 5. Get final split:
    > > python -m data_pipeline.final_split
 
-# $env:PYTHONUTF8 = "1"
-hf auth login 
---extra-index-url https://download.pytorch.org/whl/cu128
+TRAIN:
 
-# Upload final_merged_export to HF 
-export HF_TOKEN=...
-python -m scripts.upload_merged_model --repo-id your-username/your-model-name
+> > python -m scripts.run_training
 
-# Convert final_merged_export to GGUF and upload to HF
-export HF_TOKEN=...
-python -m scripts.upload_gguf_model \
-  --repo-id your-username/your-model-name-GGUF \
-  --converter /path/to/llama.cpp/convert_hf_to_gguf.py
+EXPORT:
 
-# ... GGUF without convertion
-python -m scripts.upload_gguf_model \
-  --repo-id your-username/your-model-name-GGUF \
-  --outfile gguf/functiongemma-merged.f16.gguf \
-  --skip-convert
+> >
+
+# Sanitize gemma3 tokenizer
+
+python3 scripts.ai.sanitize_gemma3_text_tokenizer.py --model-dir final_merged_model
 
 # Download llama.cpp repo to use convert_hf_to_gguf.py
+
 git clone https://github.com/ggml-org/llama.cpp.git
 cd llama.cpp
 python3 -m pip install -r requirements/requirements-convert_hf_to_gguf.txt
 
+# Convert final_merged_export to GGUF and upload to HF
+
+export HF_TOKEN=...
+python -m scripts.upload_gguf_model \
+ --repo-id your-username/your-model-name-GGUF \
+ --converter /path/to/llama.cpp/convert_hf_to_gguf.py
+
+EXTRA:
+
+# $env:PYTHONUTF8 = "1"
+
+hf auth login
+--extra-index-url https://download.pytorch.org/whl/cu128
+
 # Use via python in CLI
+
 python3 convert_hf_to_gguf.py /path/to/huggingface/model --outfile model.gguf
+
+# Upload final_merged_export to HF
+
+export HF_TOKEN=...
+python -m scripts.upload_merged_model --repo-id your-username/your-model-name
+
+# ... GGUF without convertion
+
+python -m scripts.upload_gguf_model \
+ --repo-id your-username/your-model-name-GGUF \
+ --outfile gguf/functiongemma-merged.f16.gguf \
+ --skip-convert

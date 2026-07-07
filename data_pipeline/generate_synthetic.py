@@ -13,16 +13,16 @@ def get_data():
 
     arg_injections = {
         "internal_id": [
-            ("1", "1"),
-            ("2", "2"),
-            ("3", "3"),
-            ("4", "4"),
-            ("5", "5"),
-            ("one", "1"),
-            ("two", "2"),
-            ("three", "3"),
-            ("four", "4"),
-            ("five", "5"),
+            ("1", 1),
+            ("2", 2),
+            ("3", 3),
+            ("4", 4),
+            ("5", 5),
+            ("one", 1),
+            ("two", 2),
+            ("three", 3),
+            ("four", 4),
+            ("five", 5),
         ],
         # Add more argument injections as needed for other tools
     }
@@ -141,3 +141,4 @@ def get_data():
 
 if __name__ == "__main__":
     get_data()
+
